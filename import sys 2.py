@@ -19,7 +19,8 @@ class pravilaWind(QWidget):
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("C:\\Users\\finch\\OneDrive\\Рабочий стол\\pyqt progect\\first.ui" , self)
+        # uic.loadUi("C:\\Users\\finch\\OneDrive\\Рабочий стол\\pyqt progect\\first.ui" , self)
+        uic.loadUi("first.ui" , self)
         
         
         self.pravilaBt.clicked.connect(self.pravilno_kliknuto)
