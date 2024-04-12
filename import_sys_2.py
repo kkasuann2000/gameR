@@ -37,19 +37,16 @@ class MainWindow(QMainWindow):#глваное oкно
     def __init__(self):
         super().__init__()
         uic.loadUi("C:\\Users\\finch\\OneDrive\\Рабочий стол\\pyqt progect\\gameR\\first.ui" , self)
-        #скрывает кнопки выбора цветта
-        self.classic.hide()
-        self.dark.hide()
-        self.blue.hide()
-        self.light.hide()
         self.collor_vibor.hide()
 
 
-        self.pravilaBt.clicked.connect(self.pravilno_kliknuto)
-       # self.collorBt.clicked.connect(self.collor_kliknuto)
 
-    #def collor_kliknuto(self):
-        #uic.loadUi('C:\\Users\\finch\\OneDrive\\Рабочий стол\\pyqt progect\\gameR\\collor.ui',self)
+        self.pravilaBt.clicked.connect(self.pravilno_kliknuto)
+        self.collorBt.clicked.connect(self.collor_kliknuto)
+
+    def collor_kliknuto(self):
+        self.collor_vibor.setVisible(True)
+        
        
     
     def pravilno_kliknuto(self):
