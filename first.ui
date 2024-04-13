@@ -102,7 +102,7 @@
       <height>199</height>
      </rect>
     </property>
-    <widget class="QPushButton" name="light">
+    <widget class="QPushButton" name="light_Bt">
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -121,7 +121,7 @@
       <string/>
      </property>
     </widget>
-    <widget class="QPushButton" name="classic">
+    <widget class="QPushButton" name="classic_Bt">
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -141,7 +141,7 @@ background-color: rgb(187, 153, 121);</string>
       <string/>
      </property>
     </widget>
-    <widget class="QPushButton" name="blue">
+    <widget class="QPushButton" name="blue_Bt">
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -160,7 +160,7 @@ background-color: rgb(187, 153, 121);</string>
       <string/>
      </property>
     </widget>
-    <widget class="QPushButton" name="dark">
+    <widget class="QPushButton" name="dark_Bt">
      <property name="enabled">
       <bool>false</bool>
      </property>
