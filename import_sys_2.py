@@ -1,6 +1,7 @@
 import graphlib
 import sys
 import os
+from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton, QWidget, QLabel, QVBoxLayout, QScrollArea
 from PyQt6 import uic
 
@@ -11,9 +12,9 @@ size_field = {1: 6,
               3: 10,
               4: 12}
 
-collor = {1:'light',
+collor = {1:'classic',
           2:'dark',
-          3:'classic',
+          3:'light',
           4:'blue'}
 
 
@@ -26,7 +27,7 @@ class pravilaWind(QWidget):
         super().__init__()
         layout = QVBoxLayout()
         self.setWindowTitle('pravila')
-        self.setWindowTitle('правила')
+        self.setWindowTitle('правила игры реверси')
         self.label = QLabel(
             "Игра реверси, играется на доске 6х6; 8x8; 10х10; 12х12; клеток \nс черными и белыми фишками Игроки ходят по очереди,\nставя фишки на доску таким образом, \nчтобы окружить фишки противника. Когда фишки противника \nокружены фишками игрока с двух сторон, они переворачиваются \nна другую сторону. Цель игры - иметь больше фишек\n своего цвета на доске, чем у противника, когда все клетки\n заняты. Игра заканчивается, когда ни у одного из игроков \nнет возможности сделать ход, и побеждает \nтот, у кого больше фишек на доске.")
         layout.addWidget(self.label)
@@ -41,6 +42,7 @@ class MainWindow(QMainWindow):#глваное oкно
 
         self.pravilaBt.clicked.connect(self.pravilno_kliknuto)
         self.collorBt.clicked.connect(self.collor_kliknuto)
+        self.pole66light.clicked.connect(self.pole66_light)
 
         global settings
         if self.blue_Bt.clicked:
@@ -54,20 +56,22 @@ class MainWindow(QMainWindow):#глваное oкно
             print(settings)
         elif self.classic_Bt.clicked:
             settings['collor'] = 3
-            print(settings)
-
+        
+                 
     def collor_kliknuto(self):
         self.collor_vibor.setVisible(True)
 
-
-
-        
        
     
     def pravilno_kliknuto(self):
         self.window = pravilaWind()
         self.window.setGeometry(700, 150, 400, 200)
         self.window.show()
+
+
+    def pole66_light(self):
+        super().__init__()
+        uic.loadUi("C:\\Users\\finch\\OneDrive\\Рабочий стол\\pyqt progect\\gameR\\pole66_light" , self)
 
 
 app = QApplication(sys.argv)
