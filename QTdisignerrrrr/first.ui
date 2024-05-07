@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="play_Bt">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -181,7 +181,7 @@ background-color: rgb(187, 153, 121);</string>
     </widget>
    </widget>
   </widget>
-  <widget class="QScrollArea" name="mashtab_vidor">
+  <widget class="QScrollArea" name="mashtab_vibor">
    <property name="geometry">
     <rect>
      <x>80</x>
