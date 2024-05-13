@@ -40,10 +40,82 @@ class pole6x6classic(QDialog):
         super().__init__()
         uic.loadUi('QTdisignerrrrr\\classic66pole.ui' , self)
 
-class pole6x6black(QDialog):
+class pole6x6dark(QDialog):
     def __init__(self):
         super().__init__()
-        uic.loadUi('QTdisignerrrrr\\pole66_black.ui' , self)
+        uic.loadUi('QTdisignerrrrr\\pole66_dark.ui' , self)
+
+class pole6x6light(QDialog):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('QTdisignerrrrr\\pole66_light.ui' , self)
+
+class pole6x6blue(QDialog):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('QTdisignerrrrr\\pole66_blue.ui' , self)
+
+class pole8x8classic(QDialog):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('QTdisignerrrrr\\pole88_classic.ui' , self)
+
+class pole8x8dark(QDialog):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('QTdisignerrrrr\\pole88_dark.ui' , self)
+
+class pole8x8light(QDialog):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('QTdisignerrrrr\\pole88_light.ui' , self)
+
+class pole8x8blue(QDialog):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('QTdisignerrrrr\\pole88_blue.ui' , self)
+
+class pole10x10classic(QDialog):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('QTdisignerrrrr\\pole1010_classic.ui' , self)
+
+class pole10x10dark(QDialog):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('QTdisignerrrrr\\pole1010_dark.ui' , self)
+
+class pole10x10light(QDialog):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('QTdisignerrrrr\\pole1010_lihgt.ui' , self)
+
+class pole10x10blue(QDialog):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('QTdisignerrrrr\\pole1010_blue.ui' , self)
+
+class pole12x12classic(QDialog):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('QTdisignerrrrr\\pole1212_classic.ui' , self)
+
+class pole12x12dark(QDialog):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('QTdisignerrrrr\\pole1212_dark.ui' , self)
+
+class pole12x12light(QDialog):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('QTdisignerrrrr\\pole1212_light.ui' , self)
+
+class pole12x12dlue(QDialog):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('QTdisignerrrrr\\pole1212_blue.ui' , self)
+
+
 
 class MainWindow(QMainWindow):#глваное oкно
     def __init__(self):
@@ -73,11 +145,69 @@ class MainWindow(QMainWindow):#глваное oкно
             if settings['size'] == 1:
                 self.window = pole6x6classic()
                 self.window.show()
-    
-    def play(self):
         if settings['collor'] == 2:
             if settings['size'] == 1:
-                self.window = pole6x6black()
+                self.window = pole6x6dark()
+                self.window.show()
+        if settings['collor'] == 3:
+            if settings['size'] == 1:
+                self.window = pole6x6light()
+                self.window.show()
+        if settings['collor'] == 4:
+            if settings['size'] == 1:
+                self.window = pole6x6blue()
+                self.window.show()
+
+
+        if settings['collor'] == 1:
+            if settings['size'] == 2:
+                self.window = pole8x8classic()
+                self.window.show()
+        if settings['collor'] == 2:
+            if settings['size'] == 2:
+                self.window = pole8x8dark()
+                self.window.show()
+        if settings['collor'] == 3:
+            if settings['size'] == 2:
+                self.window = pole8x8light()
+                self.window.show()
+        if settings['collor'] == 4:
+            if settings['size'] == 2:
+                self.window = pole8x8blue()
+                self.window.show()
+
+        if settings['collor'] == 1:
+            if settings['size'] == 3:
+                self.window = pole10x10classic()
+                self.window.show()
+        if settings['collor'] == 2:
+            if settings['size'] == 3:
+                self.window = pole10x10dark()
+                self.window.show()
+        if settings['collor'] == 3:
+            if settings['size'] == 3:
+                self.window = pole10x10light()
+                self.window.show()
+        if settings['collor'] == 4:
+            if settings['size'] == 3:
+                self.window = pole10x10blue()
+                self.window.show()
+
+        if settings['collor'] == 1:
+            if settings['size'] == 4:
+                self.window = pole12x12classic()
+                self.window.show()
+        if settings['collor'] == 2:
+            if settings['size'] == 4:
+                self.window = pole12x12dark()
+                self.window.show()
+        if settings['collor'] == 3:
+            if settings['size'] == 4:
+                self.window = pole12x12light()
+                self.window.show()
+        if settings['collor'] == 4:
+            if settings['size'] == 4:
+                self.window = pole12x12blue()
                 self.window.show()
 
 
