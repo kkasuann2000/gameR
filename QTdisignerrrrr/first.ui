@@ -55,7 +55,7 @@
     <string>mshtab</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="zvuk_Bt">
    <property name="geometry">
     <rect>
      <x>170</x>

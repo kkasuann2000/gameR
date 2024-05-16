@@ -21,7 +21,7 @@ collor = {1:'classic',
 
 
 settings = {'collor': 1, 
-            'size': 1, 
+            'size': 2, 
             'volume': True}
 
 class pravilaWind(QWidget):
@@ -34,11 +34,18 @@ class pravilaWind(QWidget):
             "Игра реверси, играется на доске 6х6; 8x8; 10х10; 12х12; клеток \nс черными и белыми фишками Игроки ходят по очереди,\nставя фишки на доску таким образом, \nчтобы окружить фишки противника. Когда фишки противника \nокружены фишками игрока с двух сторон, они переворачиваются \nна другую сторону. Цель игры - иметь больше фишек\n своего цвета на доске, чем у противника, когда все клетки\n заняты. Игра заканчивается, когда ни у одного из игроков \nнет возможности сделать ход, и побеждает \nтот, у кого больше фишек на доске.")
         layout.addWidget(self.label)
         self.setLayout(layout)
+
+class shashechka(QLabel):
+    def __init__(self):
+        super().__init__()
+        self.setPixmap(QPixmap('images\\WhiteToken.png'))
+
         
+
 class pole6x6classic(QDialog):
     def __init__(self):
         super().__init__()
-        uic.loadUi('QTdisignerrrrr\\classic66pole.ui' , self)
+        uic.loadUi('QTdisignerrrrr\\pole66_classic.ui' , self)
 
 class pole6x6dark(QDialog):
     def __init__(self):
@@ -122,13 +129,14 @@ class MainWindow(QMainWindow):#глваное oкно
         super().__init__()
         uic.loadUi("QTdisignerrrrr\\first.ui" , self)
         self.collor_vibor.hide()
-        self.mashtab_vibor.hide()
-    
+        self.mashtab_vibor.hide()    
 
         self.play_Bt.clicked.connect(self.play)
         self.pravilaBt.clicked.connect(self.pravilno_kliknuto)
         self.collorBt.clicked.connect(self.collor_kliknuto)
         self.mashtab_Bt.clicked.connect(self.mashtab_kliknuto)
+        self.zvuk_Bt.setCheckable(True)
+        self.zvuk_Bt.clicked.connect(self.valume_klicnuto)
        
         self.classic_Bt.clicked.connect(self.classic_Bt_clicnuto)
         self.light_Bt.clicked.connect(self.light_Bt_clicnuto)
@@ -219,6 +227,26 @@ class MainWindow(QMainWindow):#глваное oкно
         self.x10.setEnabled(True)
         self.x12.setEnabled(True)
 
+    def valume_klicnuto(self):
+        # self.music = ("sounds\Rmusic.mp3")
+        # self.player = QMediaPlayer()
+        # self.audio_output = QAudioOutput()
+        # self.player.setAudioOutput(self.audio_output)
+        # self.player.setSource(QUrl.fromLocalFile(self.music))
+        # self.audio_output.setVolume(50)
+
+        if self.zvuk_Bt.isChecked():
+            self.music = ("sounds\Rmusic.mp3")
+            self.player = QMediaPlayer()
+            self.player.setLoops(66)
+            self.audio_output = QAudioOutput()
+            self.player.setAudioOutput(self.audio_output)
+            self.player.setSource(QUrl.fromLocalFile(self.music))
+            self.audio_output.setVolume(50)
+            self.player.play()
+        else:
+            self.player.stop()
+
     def pravilno_kliknuto(self):
         self.window = pravilaWind()
         self.window.setGeometry(700, 150, 400, 200)
@@ -291,28 +319,7 @@ class MainWindow(QMainWindow):#глваное oкно
         self.dark_Bt.setEnabled(True)
         self.blue_Bt.setEnabled(True)
 
-
-
-# def main():
-#     app = QGuiApplication(sys.argv)
-
-#     Rmusic = "sound.mp3"
-#     player = QMediaPlayer()
-#     audio_output = QAudioOutput()
-#     player.setAudioOutput(audio_output)
-#     player.setSource(QUrl.fromLocalFile(Rmusic))
-#     audio_output.setVolume(50)
-#     player.play()
-
-#     sys.exit(app.exec())
-
-
-# if __name__ == "__main__":
-
-
-    
-
-       
+     
     
    
 
@@ -320,6 +327,13 @@ class MainWindow(QMainWindow):#глваное oкно
 
 
 app = QApplication(sys.argv)
+# Rmusic = ("sounds\Rmusic.mp3")
+# player = QMediaPlayer()
+# audio_output = QAudioOutput()
+# player.setAudioOutput(audio_output)
+# player.setSource(QUrl.fromLocalFile(Rmusic))
+# audio_output.setVolume(50)
+# player.play()
 window = MainWindow()
 window.show()
 app.exec()
