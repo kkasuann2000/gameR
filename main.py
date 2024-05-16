@@ -44,7 +44,7 @@ class MainWindow(QMainWindow):#глваное oкно
 
         self.pravilaBt.clicked.connect(self.pravilno_kliknuto)
         self.collorBt.clicked.connect(self.collor_kliknuto)
-        self.mashtab_Bt.clicket.connect(self.mashtab_kliknuto)
+        self.mashtab_Bt.clicked.connect(self.mashtab_kliknuto)
        
         self.classic_Bt.clicked.connect(self.classic_Bt_clicnuto)
         self.light_Bt.clicked.connect(self.light_Bt_clicnuto)
@@ -117,3 +117,19 @@ app.exec()
 
 
 # плашка к цвету поле для размера 
+
+
+# def main():
+#     app = QGuiApplication(sys.argv)
+
+#     Rmusic = "sound.mp3"
+#     player = QMediaPlayer()
+#     audio_output = QAudioOutput()
+#     player.setAudioOutput(audio_output)
+#     player.setSource(QUrl.fromLocalFile(Rmusic))
+#     audio_output.setVolume(50)
+#     player.play()
+
+#     sys.exit(app.exec())
+
+# if __name__ == "__main__":

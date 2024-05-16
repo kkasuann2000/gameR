@@ -88,7 +88,7 @@ class pole10x10dark(QDialog):
 class pole10x10light(QDialog):
     def __init__(self):
         super().__init__()
-        uic.loadUi('QTdisignerrrrr\\pole1010_lihgt.ui' , self)
+        uic.loadUi('QTdisignerrrrr\\pole1010_light.ui' , self)
 
 class pole10x10blue(QDialog):
     def __init__(self):
@@ -110,7 +110,7 @@ class pole12x12light(QDialog):
         super().__init__()
         uic.loadUi('QTdisignerrrrr\\pole1212_light.ui' , self)
 
-class pole12x12dlue(QDialog):
+class pole12x12blue(QDialog):
     def __init__(self):
         super().__init__()
         uic.loadUi('QTdisignerrrrr\\pole1212_blue.ui' , self)
