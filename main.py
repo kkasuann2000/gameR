@@ -1,35 +1,28 @@
+import graphlib
 import sys
 from PyQt6.QtGui import QGuiApplication
-import os
+import os 
 from PyQt6.QtCore import QUrl
 from PyQt6.QtMultimedia import QAudioOutput, QMediaPlayer
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton, QWidget, QLabel, QVBoxLayout, QScrollArea, QDialog
 from PyQt6 import uic
 
-# словарь свой ств игры:
-
-shashechka = { 0:'black',
-               1:'white' }
-
-
-sizes = {1: 6,
-        2: 8,
-        3: 10,
-        4: 12}
-
-color = {1:'classic',
+collor = {1:'classic',
           2:'dark',
           3:'light',
           4:'blue'}
 
-settings = {'color': 1,
-            'size': 2,
+
+settings = {'collor': 'classic', 
+            'size': 6, 
             'volume': True}
 
+
+
 class pravilaWind(QWidget):
-    def __init__(self):
-        super().__init__()
+    def init(self):
+        super().init()
         layout = QVBoxLayout()
         self.setWindowTitle('pravila')
         self.setWindowTitle('правила игры реверси')
@@ -39,43 +32,24 @@ class pravilaWind(QWidget):
         self.setLayout(layout)
 
 class shashechka(QLabel):
-    def __init__(self):
-        super().__init__()
-        self.setPixmap('images\WhiteToken.png')
-        self.setPixmap('images\BlackToken.png')
-
-class timer(QLabel):
-    def __init__(self):
-        super().__init__()
-        self.timer_bt.setText("score: " + str(score))
-    timer = print('i')
-
-
-
-    poles = {}
-    for size in [6, 8, 10, 12]:
-        for color in ['classic', 'dark', 'light', 'blue']:
-            class pole(QDialog):
-                def __init__(self):
-                    super().__init__()
-                    uic.loadUi(f'QTdisignerrrrr\\pole{size}{size}_{color}.ui', self)
-            poles[(size, color)] = pole
+    def init(self):
+        super().init()
+        self.setPixmap('images\\WhiteToken.png')
 
 class MainWindow(QMainWindow):#глваное oкно
     def __init__(self):
         super().__init__()
         uic.loadUi("QTdisignerrrrr\\first.ui" , self)
         self.collor_vibor.hide()
-        self.mashtab_vibor.hide()
-
+        self.mashtab_vibor.hide()  
+        self.window = None
         self.play_Bt.clicked.connect(self.play)
         self.pravilaBt.clicked.connect(self.pravilno_kliknuto)
         self.collorBt.clicked.connect(self.collor_kliknuto)
         self.mashtab_Bt.clicked.connect(self.mashtab_kliknuto)
         self.zvuk_Bt.setCheckable(True)
         self.zvuk_Bt.clicked.connect(self.valume_klicnuto)
-        # self.timer_bt.clicked.connect(self.timer)
-
+       
         self.classic_Bt.clicked.connect(self.classic_Bt_clicnuto)
         self.light_Bt.clicked.connect(self.light_Bt_clicnuto)
         self.blue_Bt.clicked.connect(self.blue_Bt_clicnuto)
@@ -87,14 +61,22 @@ class MainWindow(QMainWindow):#глваное oкно
         self.x12.clicked.connect(self.x12_clicnuto)
 
     def play(self):
-        global size
-        size = sizes[settings['size']]
-        global color
-        color = color[settings['color']]
-        self.window = shashechka.poles[(size, color)]()
+        size = settings['size']
+        color = settings['collor']
+        class Pole(QDialog):
+            def __init__(self):
+                super().__init__()
+                uic.loadUi(f'QTdisignerrrrr\\pole{size}{size}_{color}.ui', self)
+                gamepole = [["none"] * size for _ in range(size)]
+                print(gamepole)
+        self.window = Pole()
         self.window.show()
+        self.close()
+
+
 
     def mashtab_kliknuto(self):
+        print(settings)
         self.mashtab_vibor.setVisible(True)
         self.x6.setEnabled(True)
         self.x8.setEnabled(True)
@@ -119,46 +101,47 @@ class MainWindow(QMainWindow):#глваное oкно
         self.window.setGeometry(700, 150, 400, 200)
         self.window.show()
 
+
     def x6_clicnuto(self):
         global settings
-        settings['size'] = 1
+        settings['size'] = 6
         self.mashtab_vibor.setVisible(False)
 
     def x8_clicnuto(self):
         global settings
-        settings['size'] = 2
+        settings['size'] = 8
         self.mashtab_vibor.setVisible(False)
 
     def x10_clicnuto(self):
         global settings
-        settings['size'] = 3
+        settings['size'] = 10
         self.mashtab_vibor.setVisible(False)
 
     def x12_clicnuto(self):
         global settings
-        settings['size'] = 4
+        settings['size'] = 12
         self.mashtab_vibor.setVisible(False)
 
     def classic_Bt_clicnuto(self):
         global settings
-        settings['color'] = 1
+        settings['collor'] = 'classic'
         self.collor_vibor.setVisible(False)
-
+    
     def light_Bt_clicnuto(self):
         global settings
-        settings['color'] = 3
+        settings['collor'] = 'light'
         self.collor_vibor.setVisible(False)
 
     def blue_Bt_clicnuto(self):
         global settings
-        settings['color'] = 4
+        settings['collor'] = 'blue'
         self.collor_vibor.setVisible(False)
 
     def dark_Bt_clicnuto(self):
         global settings
-        settings['color'] = 2
+        settings['collor'] = 'dark'
         self.collor_vibor.setVisible(False)
-
+             
     def collor_kliknuto(self):
         self.collor_vibor.setVisible(True)
         self.classic_Bt.setEnabled(True)
@@ -166,8 +149,17 @@ class MainWindow(QMainWindow):#глваное oкно
         self.dark_Bt.setEnabled(True)
         self.blue_Bt.setEnabled(True)
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    window = MainWindow()
-    window.show()
-    sys.exit(app.exec())
+app = QApplication(sys.argv)
+# Rmusic = ("sounds\Rmusic.mp3")
+# player = QMediaPlayer()
+# audio_output = QAudioOutput()
+# player.setAudioOutput(audio_output)
+# player.setSource(QUrl.fromLocalFile(Rmusic))
+# audio_output.setVolume(50)
+# player.play()
+window = MainWindow()
+window.show()
+app.exec()
+
+
+# плашка к цвету поле для размера ыыва
