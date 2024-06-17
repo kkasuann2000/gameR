@@ -9,7 +9,7 @@ from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton, QWidget, QLa
 from PyQt6 import uic
 
 # словарь свой ств игры:
-sizes = {1: 6,
+size_field = {1: 6,
               2: 8,
               3: 10,
               4: 12}
@@ -38,21 +38,8 @@ class pravilaWind(QWidget):
 class shashechka(QLabel):
     def __init__(self):
         super().__init__()
-        self.setPixmap('images\\WhiteToken.png')
+        self.setPixmap(QPixmap('images\\WhiteToken.png'))
 
-
-
-    poles = {}
-    for size in [6, 8, 10, 12]:
-        for color in ['classic', 'dark', 'light', 'blue']:
-            class pole(QDialog):
-                def __init__(self):
-                    super().__init__()
-                    uic.loadUi(f'QTdisignerrrrr\\pole{size}{size}_{color}.ui', self)
-            poles[(size, color)] = pole
-
-        # self.window = poles[(settings['size'], settings['collor'])]
-        # self.window.show()
         
 
 class pole6x6classic(QDialog):
@@ -137,13 +124,12 @@ class pole12x12blue(QDialog):
 
 
 
-
 class MainWindow(QMainWindow):#глваное oкно
     def __init__(self):
         super().__init__()
         uic.loadUi("QTdisignerrrrr\\first.ui" , self)
         self.collor_vibor.hide()
-        self.mashtab_vibor.hide()  
+        self.mashtab_vibor.hide()    
 
         self.play_Bt.clicked.connect(self.play)
         self.pravilaBt.clicked.connect(self.pravilno_kliknuto)
@@ -242,7 +228,12 @@ class MainWindow(QMainWindow):#глваное oкно
         self.x12.setEnabled(True)
 
     def valume_klicnuto(self):
-    
+        # self.music = ("sounds\Rmusic.mp3")
+        # self.player = QMediaPlayer()
+        # self.audio_output = QAudioOutput()
+        # self.player.setAudioOutput(self.audio_output)
+        # self.player.setSource(QUrl.fromLocalFile(self.music))
+        # self.audio_output.setVolume(50)
 
         if self.zvuk_Bt.isChecked():
             self.music = ("sounds\Rmusic.mp3")
@@ -308,17 +299,17 @@ class MainWindow(QMainWindow):#глваное oкно
      
 
         # global settings
-        if self.blue_Bt.clicked:
-            settings['collor'] = 4
-            print(settings)
-        elif self.light_Bt.clicked:
-            settings['collor'] = 1
-            print(settings)
-        elif self.dark_Bt.clicked:
-            settings['collor'] = 2
-            print(settings)
-        elif self.classic_Bt.clicked:
-            settings['collor'] = 3
+        # if self.blue_Bt.clicked:
+        #     settings['collor'] = 4
+        #     print(settings)
+        # elif self.light_Bt.clicked:
+        #     settings['collor'] = 1
+        #     print(settings)
+        # elif self.dark_Bt.clicked:
+        #     settings['collor'] = 2
+        #     print(settings)
+        # elif self.classic_Bt.clicked:
+        #     settings['collor'] = 3
         
                  
     def collor_kliknuto(self):

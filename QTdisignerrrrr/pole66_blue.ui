@@ -685,19 +685,6 @@ background-color: rgb(55, 56, 85);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="timer_bt">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>40</y>
-     <width>71</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
  </widget>
  <resources/>
  <connections/>

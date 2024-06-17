@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="a_1">
+  <widget class="QPushButton" name="a1">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -29,7 +29,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_1">
+  <widget class="QPushButton" name="a2">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -59,8 +59,8 @@ background-color: rgb(187, 153, 121);</string>
     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.875pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;счет1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:7.875pt; font-weight:600;&quot;&gt;счет1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QTextBrowser" name="textBrowser_3">
@@ -76,8 +76,8 @@ p, li { white-space: pre-wrap; }
     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.875pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;time&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:7.875pt;&quot;&gt;time&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QTextBrowser" name="textBrowser_2">
@@ -93,9 +93,9 @@ p, li { white-space: pre-wrap; }
     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.875pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;счет2&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:7.875pt; font-weight:600;&quot;&gt;счет2&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:7.875pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_3">
@@ -124,7 +124,7 @@ p, li { white-space: pre-wrap; }
     <string>again</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_2">
+  <widget class="QPushButton" name="a4">
    <property name="geometry">
     <rect>
      <x>310</x>
@@ -141,7 +141,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_2">
+  <widget class="QPushButton" name="a3">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -157,7 +157,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_3">
+  <widget class="QPushButton" name="a6">
    <property name="geometry">
     <rect>
      <x>410</x>
@@ -174,7 +174,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_3">
+  <widget class="QPushButton" name="a5">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -190,7 +190,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_4">
+  <widget class="QPushButton" name="a9">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -207,7 +207,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_5">
+  <widget class="QPushButton" name="a11">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -224,7 +224,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_4">
+  <widget class="QPushButton" name="a10">
    <property name="geometry">
     <rect>
      <x>310</x>
@@ -240,7 +240,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_6">
+  <widget class="QPushButton" name="a7">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -257,7 +257,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_5">
+  <widget class="QPushButton" name="a12">
    <property name="geometry">
     <rect>
      <x>410</x>
@@ -273,7 +273,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_6">
+  <widget class="QPushButton" name="a8">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -289,7 +289,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_7">
+  <widget class="QPushButton" name="a21">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -306,7 +306,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_7">
+  <widget class="QPushButton" name="a24">
    <property name="geometry">
     <rect>
      <x>410</x>
@@ -322,7 +322,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_8">
+  <widget class="QPushButton" name="a16">
    <property name="geometry">
     <rect>
      <x>310</x>
@@ -339,7 +339,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_9">
+  <widget class="QPushButton" name="a18">
    <property name="geometry">
     <rect>
      <x>410</x>
@@ -356,7 +356,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_8">
+  <widget class="QPushButton" name="a17">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -372,7 +372,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_9">
+  <widget class="QPushButton" name="a20">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -388,7 +388,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_10">
+  <widget class="QPushButton" name="a19">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -405,7 +405,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_11">
+  <widget class="QPushButton" name="a14">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -422,7 +422,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_10">
+  <widget class="QPushButton" name="a13">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -438,7 +438,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_11">
+  <widget class="QPushButton" name="a15">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -454,7 +454,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_12">
+  <widget class="QPushButton" name="a23">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -471,7 +471,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_12">
+  <widget class="QPushButton" name="a22">
    <property name="geometry">
     <rect>
      <x>310</x>
@@ -487,7 +487,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_13">
+  <widget class="QPushButton" name="a33">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -504,7 +504,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_13">
+  <widget class="QPushButton" name="a36">
    <property name="geometry">
     <rect>
      <x>410</x>
@@ -520,7 +520,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_14">
+  <widget class="QPushButton" name="a28">
    <property name="geometry">
     <rect>
      <x>310</x>
@@ -537,7 +537,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_15">
+  <widget class="QPushButton" name="a30">
    <property name="geometry">
     <rect>
      <x>410</x>
@@ -554,7 +554,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_14">
+  <widget class="QPushButton" name="a29">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -570,7 +570,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_15">
+  <widget class="QPushButton" name="a32">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -586,7 +586,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_16">
+  <widget class="QPushButton" name="a31">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -603,7 +603,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_17">
+  <widget class="QPushButton" name="a26">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -620,7 +620,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_16">
+  <widget class="QPushButton" name="a25">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -636,7 +636,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_17">
+  <widget class="QPushButton" name="a27">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -652,7 +652,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="b_18">
+  <widget class="QPushButton" name="a35">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -669,7 +669,7 @@ background-color: rgb(187, 153, 121);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="a_18">
+  <widget class="QPushButton" name="a34">
    <property name="geometry">
     <rect>
      <x>310</x>

@@ -1,12 +1,13 @@
 import graphlib
 import sys
-from PyQt6.QtGui import QGuiApplication
+from PyQt6.QtGui import QGuiApplication, QIcon
 import os 
-from PyQt6.QtCore import QUrl
+from PyQt6.QtCore import QUrl, QSize, QDateTime
 from PyQt6.QtMultimedia import QAudioOutput, QMediaPlayer
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton, QWidget, QLabel, QVBoxLayout, QScrollArea, QDialog
-from PyQt6 import uic
+from PyQt6 import uic, QtCore
+from datetime import datetime
 
 collor = {1:'classic',
           2:'dark',
@@ -21,8 +22,8 @@ settings = {'collor': 'classic',
 
 
 class pravilaWind(QWidget):
-    def init(self):
-        super().init()
+    def __init__(self):
+        super().__init__()
         layout = QVBoxLayout()
         self.setWindowTitle('pravila')
         self.setWindowTitle('правила игры реверси')
@@ -31,10 +32,9 @@ class pravilaWind(QWidget):
         layout.addWidget(self.label)
         self.setLayout(layout)
 
-class shashechka(QLabel):
-    def init(self):
-        super().init()
-        self.setPixmap('images\\WhiteToken.png')
+
+        
+        
 
 class MainWindow(QMainWindow):#глваное oкно
     def __init__(self):
@@ -63,15 +63,161 @@ class MainWindow(QMainWindow):#глваное oкно
     def play(self):
         size = settings['size']
         color = settings['collor']
+
+
         class Pole(QDialog):
             def __init__(self):
                 super().__init__()
+                self.check = 'game'
+                self.pauseWind = None
                 uic.loadUi(f'QTdisignerrrrr\\pole{size}{size}_{color}.ui', self)
-                gamepole = [["none"] * size for _ in range(size)]
-                print(gamepole)
+                self.ui = uic.loadUi(f'QTdisignerrrrr\\pole{size}{size}_{color}.ui', self)
+                self.current_player = 1
+                count = 1
+                self.temp = 0
+                self.wind = None
+                self.timer = QtCore.QTimer(self)
+                self.timer.setInterval(1000)
+                self.timer.timeout.connect(self.displayTime)
+                self.timer.start()
+                self.pushButton_4.clicked.connect(self.again)
+                self.pushButton_3.clicked.connect(self.pause)
+
+                if size == (6 or 8):
+                    self.iconSize = QSize(41, 41)
+                else:
+                    self.iconSize = QSize(31, 31)
+
+                middle = size // 2
+                self.board = [[0] * size for _ in range(size)]
+                self.board[middle-1][middle-1] = self.board[middle][middle] = 1
+                self.board[middle-1][middle] = self.board[middle][middle-1] = 2
+
+                self.buttons = []
+                for i in range(size):
+                    row = []
+                    for j in range(size):
+                        button = getattr(self.ui, f'a{count}')
+                        button.clicked.connect(lambda _, row=i, col=j: self.buttonClicked(row, col))
+                        row.append(button)
+                        count += 1
+                    self.buttons.append(row)
+
+                self.buttons[middle-1][middle-1].setIcon(QIcon('images\\BlackToken.png'))
+                self.buttons[middle-1][middle-1].setIconSize(self.iconSize)
+                self.buttons[middle-1][middle].setIcon(QIcon('images\\WhiteToken.png'))
+                self.buttons[middle-1][middle].setIconSize(self.iconSize)
+                self.buttons[middle][middle].setIcon(QIcon('images\\BlackToken.png'))
+                self.buttons[middle][middle].setIconSize(self.iconSize)
+                self.buttons[middle][middle-1].setIcon(QIcon('images\\WhiteToken.png'))
+                self.buttons[middle][middle-1].setIconSize(self.iconSize)
+
+            def pause(self):
+                self.timer.stop()
+                if self.check == 'game':
+                    for i in range(size):
+                        for j in range(size):
+                            self.buttons[i][j].setEnabled(False)
+                    self.check = 'pause'
+                else:
+                    self.check = 'game'
+                    for i in range(size):
+                        for j in range(size):
+                            self.buttons[i][j].setEnabled(True)
+                    self.timer.start()
+              
+            
+
+            def again(self):
+                self.wind = Pole()
+                self.wind.show()
+                self.close()
+
+            def displayTime(self):
+                self.textBrowser_3.setText(f'time \n\n\n{datetime.utcfromtimestamp(self.temp).strftime("%H:%M:%S")}')
+                self.temp += 1
+                score = sum(row.count(0) for row in self.board)
+                if score == 0:
+                    self.timer.stop()
+                    winner = self.check_winner()
+                    if winner == 1:
+                        print("Победил игрок 1!")
+                    elif winner == 2:
+                        print("Победил игрок 2!")
+                    else:
+                        print("Ничья!")
+
+            def count_score(self):
+                player1_score = sum(row.count(1) for row in self.board)
+                player2_score = sum(row.count(2) for row in self.board)
+                return player1_score, player2_score
+
+            def check_winner(self):
+                player1_score, player2_score = self.count_score()
+                if player1_score > player2_score:
+                    return 1
+                elif player2_score > player1_score:
+                    return 2
+                else:
+                    return 0 
+
+            def buttonClicked(self, row, col):
+                if self.is_valid_move(row, col):
+                    self.make_move(row, col)
+                    self.current_player = 1 if self.current_player == 2 else 2
+                    self.update_board()
+
+            def is_valid_move(self, row, col):
+                if self.board[row][col] != 0:
+                    return False
+                directions = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
+                valid_move = False
+                for dr, dc in directions:
+                    r, c = row + dr, col + dc
+                    while 0 <= r < size and 0 <= c < size:
+                        if self.board[r][c] == 0:
+                            break
+                        if self.board[r][c] == self.current_player:
+                            valid_move = True
+                            break
+                        r, c = r + dr, c + dc
+                    if valid_move:
+                        break
+                return valid_move
+
+            def make_move(self, row, col):
+                self.board[row][col] = self.current_player
+                directions = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
+                for dr, dc in directions:
+                    r, c = row + dr, col + dc
+                    to_flip = []
+                    while 0 <= r < size and 0 <= c < size and self.board[r][c] != 0 and self.board[r][c] != self.current_player:
+                        to_flip.append((r, c))
+                        r, c = r + dr, c + dc
+                    if 0 <= r < size and 0 <= c < size and self.board[r][c] == self.current_player:
+                        for flip_r, flip_c in to_flip:
+                            self.board[flip_r][flip_c] = self.current_player
+
+            def update_board(self):
+                for i in range(size):
+                    for j in range(size):
+                        if self.board[i][j] == 0:
+                            pass
+                        elif self.board[i][j] == 1:
+                            self.buttons[i][j].setIcon(QIcon('images\\BlackToken.png'))
+                            self.buttons[i][j].setIconSize(self.iconSize)
+                        else:
+                            self.buttons[i][j].setIcon(QIcon('images\\WhiteToken.png'))
+                            self.buttons[i][j].setIconSize(self.iconSize)
+
+        #Запуск поля
         self.window = Pole()
         self.window.show()
-        self.close()
+        self.close()            
+        
+
+
+            
 
 
 
