@@ -14,12 +14,9 @@ collor = {1:'classic',
           3:'light',
           4:'blue'}
 
-
 settings = {'collor': 'classic', 
             'size': 6, 
             'volume': True}
-
-
 
 class pravilaWind(QWidget):
     def __init__(self):
@@ -32,9 +29,14 @@ class pravilaWind(QWidget):
         layout.addWidget(self.label)
         self.setLayout(layout)
 
+class pobeda(QDialog):
+    def __init__(self,winner:str, p1: int, p2: int):
+        super().__init__()
+        uic.loadUi("QTdisignerrrrr\pobeda.ui" , self)
+        self.label.setText(winner)
+        self.label_2.setText(str(p1))
+        self.label_3.setText(str(p2))
 
-        
-        
 
 class MainWindow(QMainWindow):#глваное oкно
     def __init__(self):
@@ -64,7 +66,6 @@ class MainWindow(QMainWindow):#глваное oкно
         size = settings['size']
         color = settings['collor']
 
-
         class Pole(QDialog):
             def __init__(self):
                 super().__init__()
@@ -75,6 +76,8 @@ class MainWindow(QMainWindow):#глваное oкно
                 self.current_player = 1
                 count = 1
                 self.temp = 0
+                self.p1 = 0
+                self.p2 = 0
                 self.wind = None
                 self.timer = QtCore.QTimer(self)
                 self.timer.setInterval(1000)
@@ -126,8 +129,6 @@ class MainWindow(QMainWindow):#глваное oкно
                             self.buttons[i][j].setEnabled(True)
                     self.timer.start()
               
-            
-
             def again(self):
                 self.wind = Pole()
                 self.wind.show()
@@ -137,15 +138,26 @@ class MainWindow(QMainWindow):#глваное oкно
                 self.textBrowser_3.setText(f'time \n\n\n{datetime.utcfromtimestamp(self.temp).strftime("%H:%M:%S")}')
                 self.temp += 1
                 score = sum(row.count(0) for row in self.board)
+                player1_score, player2_score = self.count_score()
+                self.p1 = self.p1 + player1_score - self.p1
+                self.p2 = self.p2 + player2_score - self.p2
+                self.textBrowser.setText(f'Счет 1 \n\n {self.p1 + player1_score - self.p1}')
+                self.textBrowser_2.setText(f'Счет 2 \n\n {self.p2 + player2_score - self.p2}')
                 if score == 0:
                     self.timer.stop()
                     winner = self.check_winner()
                     if winner == 1:
-                        print("Победил игрок 1!")
+                        self.wind = pobeda("Победил игрок 1!", self.p1, self.p2)
+                        self.wind.show()
+                        self.close()
                     elif winner == 2:
-                        print("Победил игрок 2!")
+                        self.wind = pobeda("Победил игрок 2!", self.p1, self.p2)
+                        self.wind.show()
+                        self.close()
                     else:
-                        print("Ничья!")
+                        self.wind = pobeda("Ничья", self.p1, self.p2)
+                        self.wind.show()
+                        self.close()
 
             def count_score(self):
                 player1_score = sum(row.count(1) for row in self.board)
@@ -197,6 +209,8 @@ class MainWindow(QMainWindow):#глваное oкно
                     if 0 <= r < size and 0 <= c < size and self.board[r][c] == self.current_player:
                         for flip_r, flip_c in to_flip:
                             self.board[flip_r][flip_c] = self.current_player
+                            
+
 
             def update_board(self):
                 for i in range(size):
@@ -206,20 +220,15 @@ class MainWindow(QMainWindow):#глваное oкно
                         elif self.board[i][j] == 1:
                             self.buttons[i][j].setIcon(QIcon('images\\BlackToken.png'))
                             self.buttons[i][j].setIconSize(self.iconSize)
+                            
                         else:
                             self.buttons[i][j].setIcon(QIcon('images\\WhiteToken.png'))
                             self.buttons[i][j].setIconSize(self.iconSize)
+                            
 
-        #Запуск поля
         self.window = Pole()
         self.window.show()
         self.close()            
-        
-
-
-            
-
-
 
     def mashtab_kliknuto(self):
         print(settings)
@@ -231,13 +240,13 @@ class MainWindow(QMainWindow):#глваное oкно
 
     def valume_klicnuto(self):
         if self.zvuk_Bt.isChecked():
-            self.music = ("sounds\Rmusic.mp3")
+            self.music = ("sounds\sunsetreverie.mp3")
             self.player = QMediaPlayer()
             self.player.setLoops(66)
             self.audio_output = QAudioOutput()
             self.player.setAudioOutput(self.audio_output)
             self.player.setSource(QUrl.fromLocalFile(self.music))
-            self.audio_output.setVolume(50)
+            self.audio_output.setVolume(100)
             self.player.play()
         else:
             self.player.stop()
@@ -246,7 +255,6 @@ class MainWindow(QMainWindow):#глваное oкно
         self.window = pravilaWind()
         self.window.setGeometry(700, 150, 400, 200)
         self.window.show()
-
 
     def x6_clicnuto(self):
         global settings
@@ -296,16 +304,6 @@ class MainWindow(QMainWindow):#глваное oкно
         self.blue_Bt.setEnabled(True)
 
 app = QApplication(sys.argv)
-# Rmusic = ("sounds\Rmusic.mp3")
-# player = QMediaPlayer()
-# audio_output = QAudioOutput()
-# player.setAudioOutput(audio_output)
-# player.setSource(QUrl.fromLocalFile(Rmusic))
-# audio_output.setVolume(50)
-# player.play()
 window = MainWindow()
 window.show()
 app.exec()
-
-
-# плашка к цвету поле для размера ыыва

@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Play</string>
+    <string>PLAY</string>
    </property>
   </widget>
   <widget class="QPushButton" name="collorBt">
@@ -39,7 +39,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>collor</string>
+    <string>ВЫБОР ТЕМЫ</string>
    </property>
   </widget>
   <widget class="QPushButton" name="mashtab_Bt">
@@ -52,7 +52,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>mshtab</string>
+    <string>РАЗМЕР</string>
    </property>
   </widget>
   <widget class="QPushButton" name="zvuk_Bt">
@@ -60,25 +60,25 @@
     <rect>
      <x>170</x>
      <y>470</y>
-     <width>51</width>
+     <width>58</width>
      <height>51</height>
     </rect>
    </property>
    <property name="text">
-    <string>zvuk</string>
+    <string>ЗВУК</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pravilaBt">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>247</x>
      <y>470</y>
-     <width>51</width>
+     <width>101</width>
      <height>51</height>
     </rect>
    </property>
    <property name="text">
-    <string>pravila</string>
+    <string>ПРАВИЛА</string>
    </property>
   </widget>
   <widget class="QScrollArea" name="collor_vibor">
